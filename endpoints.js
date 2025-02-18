@@ -105,7 +105,7 @@ router.post("/clients/login", (req, res) => {
 /**
  * ➤ ROUTE : Récupérer tous les produits
  */
-router.get("/produit", verifyToken, (req, res) => {
+router.get("/produits",  (req, res) => {
   db.query("SELECT * FROM produit", (err, result) => {
     if (err) return res.status(500).json({ message: "Erreur serveur" });
     res.json(result);
