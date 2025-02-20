@@ -105,7 +105,7 @@ router.post("/clients/login", (req, res) => {
 /**
  * ➤ ROUTE : Récupérer tous les produits
  */
-router.get("/produits",  (req, res) => {
+router.get("/produitsstart",  (req, res) => {
   db.query("SELECT * FROM produit", (err, result) => {
     if (err) return res.status(500).json({ message: "Erreur serveur" });
     res.json(result);
@@ -120,7 +120,7 @@ router.get("/produits",  (req, res) => {
 router.get("/produit/:ID_produit", (req, res) => {
   const { id } = req.params;
 
-  db.query("SELECT * FROM produits WHERE ID_produit = ?", [id], (err, result) => {
+  db.query("SELECT * FROM produit WHERE ID_produit = ?", [id], (err, result) => {
     if (err) {
       return res.status(500).json({ message: "Erreur serveur" });
     }
@@ -142,4 +142,4 @@ module.exports = router;
  * ➤ ROUTE PROTÉGÉE : Récupérer les commandes d'un client connecté
  */
 
-module.exports = router;
+// module.exports = router;
